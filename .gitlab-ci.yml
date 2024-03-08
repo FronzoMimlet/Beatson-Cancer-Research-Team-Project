@@ -1,12 +1,52 @@
-image: blang/latex
-build:
-  tags:
-    - docker
-  script:
-    - latexmk -pdf Change_Log.tex
-  artifacts:
+stages:
+  - build
+  - quality
+  - test
+
+# Build phase.
+# Installs necessary dependencies and save in node_modules.
+build_next:
+  stage: build
+  image: node:latest
+  cache:
     paths:
-      - "*.pdf"
+      - /client/beatson-app/node_modules
+  before_script:
+    - cd client/beatson-app
+  script:
+    - echo "building next..."
+    - npm install
+    - npm run build
+
+
+# Quality assurance phase.
+# Uses node modules previously installed in build_next and run linting.
+quality_next_lint:
+  stage: quality
+  image: node:latest
+  allow_failure: true
+  cache:
+    paths:
+      - /client/beatson-app/node_modules
+  before_script:
+    - cd client/beatson-app
+    - npm install
+  script:
+    - npm run lint
+
+# Test phase.
+# Tests using jest ran, node_modules form build phase used.
+test_frontend:
+  stage: test
+  image: node
+  cache:
+    paths:
+      - /client/beatson-app/node_modules
+  before_script:
+    - cd client/beatson-app
+  script:
+    - npm install
+    - npm test
 
 before_script:
-   - echo DB_PASSWORD is $DB_PASSWORD
+    - echo DB_PASSWORD is $DB_PASSWORD
