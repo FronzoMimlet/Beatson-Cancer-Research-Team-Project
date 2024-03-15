@@ -44,6 +44,12 @@ SOFTWATHERE.
 
 
 <br/><br/>
+## Running it on cocker
+The project support docker. Simply run `docker-compose up --build` is enough. You would need to have docker installed, however. <br/>
+Refer to https://docs.docker.com/engine/install/ for installing docker engine or https://docs.docker.com/get-docker/ for installing docker desktop instead.
+
+<br/><br/>
+
 ## Running front-end guide
 
 #### Front-end file structure
@@ -141,7 +147,7 @@ Before starting up, make sure that you boot up a virtual environment.
 
 Also, now start up a neo4j server, with the password match up the python file, server name now should be neo4j,
 
-and database URI should be bolt://[localhost:7687](http://localhost:7687).
+and database URI should be bolt://[neo4j:7687](http://neo4j:7687).
 
 * Refer to this link for setup: https://neo4j.com/developer/neo4j-desktop/
 
