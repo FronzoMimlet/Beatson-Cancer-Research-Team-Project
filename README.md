@@ -127,18 +127,7 @@ I use pip to manage packages. However, there are other ways to manage/download p
 In the server folder, do:
 `pip install -r /requirements.txt`
 
-```plaintext
-blinker==1.7.0
-click==8.1.7
-Flask==3.0.2
-itsdangerous==2.1.2
-Jinja2==3.1.3
-MarkupSafe==2.1.5
-neo4j==5.18.0
-nodeenv==1.8.0
-pytz==2024.1
-Werkzeug==3.0.1
-```
+
 ### 1\. Connecting to Backend Server:
 
 Start up the backend server:
