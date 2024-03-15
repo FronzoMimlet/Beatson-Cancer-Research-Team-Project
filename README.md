@@ -70,7 +70,7 @@ Frontend file structure includes six package/modules:
 
 #### 0\. Download / installing required packages
 
-Before running anything, make sure you have npm and node-js installed.
+You would need node.js and npm installed if not running it with docker.
 
 https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
@@ -85,7 +85,7 @@ To install them, run `npm install` by itself under the `client/beatson-app` fold
 
 #### 1\. Connecting to Frontend Server:
 
-Running `npm build` then `npm run start` would start up the front-end client.
+Running `npm build` then `npm run start`.
 
 * The client run on [localhost:3000](http://localhost:3000) by default
 * Or build and run the project in development/debug mode: `npm run dev`
@@ -143,24 +143,24 @@ Werkzeug==3.0.1
 
 Start up the backend server:
 
-Before starting up, make sure that you boot up a virtual environment.
+Currently, the docker runs with the following configuration:
 
-Also, now start up a neo4j server, with the password match up the python file, server name now should be neo4j,
-
-and database URI should be bolt://[neo4j:7687](http://neo4j:7687).
+Database URI: bolt://[neo4j:7687](http://neo4j:7687).
 
 * Refer to this link for setup: https://neo4j.com/developer/neo4j-desktop/
 
-The first step to take is within the folder \\sh01-main\\server, input terminal command:
+This will install all of the packages inside the server and store them as a pip package called beatson_app
 
 * `pip install .`
 
-This will install all of the packages inside the server and store them as a pip package called beatson_app
-
 Under the folder \\sh01-main, run the server:
 
-* `python -m server.run`
-* Or `python -m run` in the \\sh01-main\\server
+* `python -m run` in the \\sh01-main\\server folder
+
+There is a population script that consist sample data.
+
+* To run it, after booting up docker, in the docker terminal, input<br/>
+`python -m population.studyPopulationScript`
 <br/><br/>
 ### 2\. Making session calls to the server
 
