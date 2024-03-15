@@ -85,7 +85,7 @@ To install them, run `npm install` by itself under the `client/beatson-app` fold
 
 #### 1\. Connecting to Frontend Server:
 
-Running `npm build` then `npm run start`.
+Run `npm build` then `npm run start`.
 
 * The client run on [localhost:3000](http://localhost:3000) by default
 * Or build and run the project in development/debug mode: `npm run dev`
